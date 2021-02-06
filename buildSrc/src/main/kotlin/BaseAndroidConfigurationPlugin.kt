@@ -18,6 +18,7 @@ class BaseAndroidConfigurationPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         target.run {
             plugins.apply(ANDROID_KOTLIN_PLUGIN_ID)
+            apply{ from(KTLINT_PATTERN.format(rootDir)) }
             androidExtension?.configure(target.kotlinTasks)
         }
     }
@@ -89,5 +90,6 @@ class BaseAndroidConfigurationPlugin : Plugin<Project> {
         const val ANDROID_DEFAULT_PROGUARD_FILE = "proguard-android-optimize.txt"
         const val ANDROID_PROGUARD_RULES = "proguard-rules.pro"
         const val RELEASE_BUILD_TYPE = "release"
+        const val KTLINT_PATTERN = "%s/ktlint.gradle.kts"
     }
 }
