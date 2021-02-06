@@ -8,11 +8,11 @@ plugins {
 }
 
 gradlePlugin {
-    val appBaseModulePlugin = "app-base-module-plugin"
+    val appBaseModulePlugin = "base-android-module-plugin"
     plugins {
         register(appBaseModulePlugin) {
             id = appBaseModulePlugin
-            implementationClass = "AndroidAppConfigurationPlugin"
+            implementationClass = "BaseAndroidConfigurationPlugin"
         }
     }
 }
